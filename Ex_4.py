@@ -35,3 +35,17 @@ def is_tree_symmetric(tree):
                     and check_symmetric(subtree_0.right, subtree_1.left))
         return False
     return not tree or check_symmetric(tree.left, tree.right)
+
+
+
+# Пример использования с заданными в условии деревьями:
+
+from collections import namedtuple
+Node = namedtuple('Node', ['data', 'left', 'right'])
+
+tree1 = Node(1, Node(2, Node(3, None, None), Node(4, None, None)), Node(2, Node(4, None, None), Node(3, None, None)))
+tree2 = Node(1, Node(2, Node(3, None, None), Node(5, None, None)), Node(2, Node(6, None, None), Node(3, None, None)))
+tree3 = Node(1, Node(2, Node(5, None, None), None), Node(2, None, Node(5, None, None)))
+           
+for t in [tree1, tree2, tree3]:
+  print(is_tree_symmetric(t))
